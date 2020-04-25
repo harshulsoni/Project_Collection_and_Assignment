@@ -3,7 +3,7 @@
 
 <% if @team.is_leader?(current_user) || current_user.admin? %>
   <h2><%= link_to "Edit", edit_team_path(@team) %>
-  <% if !@assignment && @member_count <=1 %>
+  <% if @member_count <=1 and !@assignment %>
     | <%= link_to "Delete", @team, method: :delete,
                   data: {confirm: "You sure?"} %>
   <% end %>
