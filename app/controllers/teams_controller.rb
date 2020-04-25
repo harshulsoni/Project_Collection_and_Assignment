@@ -111,6 +111,7 @@ class TeamsController < ApplicationController
     def show
         @team = Team.find(params[:id])
         @members = @team.members
+        @member_count = @members.count
         @assignment = Assignment.find_by_team_id(@team.id)
 
 
