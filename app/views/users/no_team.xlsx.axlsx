@@ -6,12 +6,12 @@ wb.styles do |style|
 
   wb.add_worksheet(name: 'User_NoTeam') do |sheet|
     # Create the header row
-    sheet.add_row ['UIN', 'Name', 'Email ID'], style: heading
+    sheet.add_row ['UIN', 'Firstname', 'Lastname', 'Email ID'], style: heading
 
     # Create entries for each user with no team
     @users_all.each do |u|
       if u.uin != '703048617' # don't allow admin
-        sheet.add_row [u.uin, u.firstname + ' ' + u.lastname, u.email], style: wrap_text
+        sheet.add_row [u.uin, u.firstname, u.lastname, u.email], style: wrap_text
       end
     end
   end
