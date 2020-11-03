@@ -113,7 +113,9 @@ class AssignmentsController < ApplicationController
         Team.find_each do |team|
             @team_names << team.name
         end
-        Project.find_each do |project|
+
+        allProjects = Project.where('approved = ?', true)
+        allProjects.each do |project|
             @project_names << project.title
         end
 
