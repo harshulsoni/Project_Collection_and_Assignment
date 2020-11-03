@@ -307,8 +307,8 @@ class ProjectsController < ApplicationController
         @opt = Project.all.order('title').where('isactive = ?', true)
         @options = @opt.collect {|p| [p.title, p.id]}
 
-        @semester = current_user.admin? ? nil : current_user.semester
-        @year = current_user.admin? ? nil : current_user.year
+        @semester = current_user == nil ? nil :  current_user.admin? ? nil : current_user.semester
+        @year = current_user == nil ? nil : current_user.admin? ? nil : current_user.year
     end
 
     def create
