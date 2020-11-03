@@ -33,6 +33,8 @@ gem 'activerecord-import'
 gem "rails-settings-cached"
 gem 'simple_form'
 gem 'factory_bot_rails'
+gem 'railties', '>=0.a'
+gem 'bigdecimal', '1.3.5'
 
 group :development, :test do
   #  gem 'quiet_assets'  # Deprecated
@@ -59,7 +61,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'puma'
   gem 'rails_12factor'
 end
