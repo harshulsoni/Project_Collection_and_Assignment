@@ -46,6 +46,7 @@ class ResetController < ApplicationController
             # TODO: First update the semester/year as part of migration UI.
             project.semester = @semester
             project.year = @year
+            project.approved = false
             project.save
         end
 
