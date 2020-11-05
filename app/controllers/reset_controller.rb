@@ -3,7 +3,7 @@ class ResetController < ApplicationController
     before_action :admin_user
 
     def index
-        @projects = Project.order('year DESC,semester DESC').all.paginate(page: params[:page])
+        @projects = Project.where('isactive = ?', true).order('year DESC,semester DESC').all.paginate(page: params[:page])
     end
 
     def downloadAndReset
