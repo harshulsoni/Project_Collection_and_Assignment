@@ -53,13 +53,7 @@
       <td><%= link_to @project.github_link, @project.github_link if @project.github_link.present? %></td>
       </tr>
       </tr>
-      <th>Pivotal Link</th>
-      <td><%= link_to @project.pivotal_link, @project.pivotal_link if @project.pivotal_link.present? %></td>
-      </tr>
-      </tr>
-      <th>Heroku Link</th>
-      <td><%= link_to @project.heroku_link, @project.heroku_link if @project.heroku_link.present? %></td>
-      </tr>
+
       <tr>
         <th>On Campus</th>
         <td><%= @project.oncampus? ? 'Yes' : 'No' %></td>
@@ -102,14 +96,6 @@
             <% else %>
               N/A
             <% end %>
-
-
-      <tr>
-        <th>Project Documentation</th>
-
-        <td><%= link_to "View", project_documentation_path(@project) %></td>
-
-      </tr>
 
       </ol>
 
