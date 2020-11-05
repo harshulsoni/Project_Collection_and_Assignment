@@ -40,8 +40,8 @@
                 <li><%= link_to "Assign Projects", assign_path, data: {confirm: "[WARNING] Are you sure you want to Assign Projects?\n"} %></li>
                 <li><%= link_to "View/Make Assignment", viewassign_path %></li>
                 <li><%= link_to "Download Assignment", download_path, :confirm => "are you sure?" %></li>
-                <li class="divider"></li>
-                <li><%= link_to "Peer Evaluation Result", peer_evaluation_path %></li>
+                <%# <li class="divider"></li> %>
+                <li><%#= link_to "Peer Evaluation Result", peer_evaluation_path %></li>
               </ul>
             </li>
             <li><%= link_to "Migrate", migrate_path %></li>
@@ -70,7 +70,7 @@
                 <li><%= link_to "My Project Proposals", myproposals_projects_path %></li>
                 <li><%= link_to "View Assigned Project", user_project_path(current_user) %></li>
                 <li class="divider"></li>
-                <li><%= link_to "Peer Evaluation", peer_evaluation_path %></li>
+                <li><%#= link_to "Peer Evaluation", peer_evaluation_path %></li>
 <%#and team.is_leader?(current_user)%>
                <% if team %>
                 <li><%= link_to "Project Preference", preference_team_path(team) %></li>
