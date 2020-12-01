@@ -1,45 +1,46 @@
-# Project Collection and Assignment (Spring 2020)
+# Project Collection and Assignment (Fall 2020)
 
-This is a fork of "Project Collection and Assignment" from https://github.com/PuneetKohli/Project_Collection_and_Assignment. Now, the FellowshipOfTheRing is working on this project.
+This is a fork of "Project Collection and Assignment" from https://github.com/harishk1908/Project_Collection_and_Assignment.
 
-Heroku Link     - https://glacial-shelf-67800.herokuapp.com/
-Pivotal Tracker - https://www.pivotaltracker.com/n/projects/2436883
-Demo Video - https://drive.google.com/open?id=1klvQNPVVhwRqonlefZY39VpWKXUvpi3J
+Heroku Link     - https://pro-assign.herokuapp.com/
 
-Team Members - Abishalini Sivaraman, Abraham Gerard Sebastian, Akansha Agarwal, Aurosmita Khansama, Harish Kumar, Sahan Suresh Alva, Vaishnavi Chauhan
+This project is a part of CSCE 685 Directed Studies. The main customer of the application is the course instructor for CSCE 606 - Prof. Duncan M. (Hank) Walker, the teaching assistant for the course in the following semesters, and the student taking the course. The updated version is deployed on Heroku account and the source code can be found on the Github link mentioned above.
 
-Iteration 1 
+Objective
 ===================
-#### Update at 03/23/2020
- 
- - Reset Passwork to UIN (temporary fix to Reset Password feature)
- - Removed login using NETID 
- - Fixed download XLSX feature which previously downloaded the first page of users
- - After deleting a user without a team, the admin is redirected to the list of users without a team
- - After editing a team, the admin is redirected back to the list of all teams
 
-Iteration 2
+ - Manage Team formation between students
+ - Filling project preference by the Team leader
+ - Assign projects to the team based on the preferences filled by the team
+ - Migration of projects from one semester to the next semester.
+ - Downloading the student records and project assignment records.
+ - Allow admins to modify team and project information.
+
+Features Implemented
 ===================
-#### Update at 03/04/2020
 
- - Implemented Reset Password using link sent via email
- - Implemented Search Bar to find students using UIN, Name or Team Name
- - Added personal email attribute to users so there is a non-tamu email in record 
+ - Sorting of student records based on the last name is implemented. Previously, the sorting was based on the first name of the user only. This is only visible from the admin view and on the All users page.
+ - The name "View Assignment" is changed to "View/Make Assignments". This can be found in the header view.
+ - Changes are made in the assignment_controller to list only approved projects in the View Assignments page. Previously, all the projects were displayed in the assignment dropdown box.
+ - After the migration, the status of the migrated projects is set to "Not approved". Previously, the status of project was not changed. Now, after the migration of the projects to the next semester, the admin must approve the projects for the next semesters. Only these approved projects will be visible to the students and the students can fill out their preferences from these approved projects.
+ - Peer evaluation content is deleted from the application. Peer Evaluation will be handled in Canvas.
+ - Added a check to migrate only active projects to the next semester. Archived project are not migrated. To migrate a archived project, the project need to be unarchived from the All Projects page and then the migration should be initiated.
+ - Since Pivotal and Heroku links will not be used in the future, they are removed. Only Github link is present. Moreover, the documentation link is also removed. The Documentation should be done in Github repository Readme.
+ - The forget password functionality was already implemented. An account is created on SendGrid and a single sender is created with “walker@cse.tamu.edu” . The emails will be received from this email id. Moreover, the SENDGRID_API_KEY is added to the environment variables in Heroku. Also, the “From” mail is updated in application_mailer to Prof. Walker’s email. This will be the Id in From field when password reset email is received.
+ - The Project is deployed on pro-assign.heroku.com.
+ - An additional backup of the app is created on pro-assign-backup.heroku.com. This is the pervious version of the application used for Fall 2020 and previous semesters. This also contains the backup of all the projects data. 
 
-Iteration 3
+User Stories
 ===================
-#### Update at 04/17/2020
 
- - Admins can grant admin priviledges to other users
- - Team Leader can change project preferences
+The following are the user stories for the tasks above. The user stories are improvements over the stories in the previous course semester.
 
-Iteration 4
-===================
-#### Update at 5/01/2020
-
- - Semester Migration page - moves all legacy projects to semester specified by admin. 
- - Team leaders cannot delete team if there are members
- - A team with assigned project cannot be deleted
- - Admins can see project selections made by each team
- 
-
+ - As an Admin, I want to sort the student using the first and last name, so that I can find the student records easily.
+ - As an Admin, I want to allow on approved projects to be seen by the student, so that the student can fill out their preferences.
+ - As an Admin, I want to migrate the current semester projects to the next semester, so that I can use the existing information and make necessary changes.
+ - As an admin, I want all the migrated projects to be set to “Not approved”, so that I can select which projects to include in the current semester.
+ - As an Admin, I want only the unarchived projects to be migrated to the next semester, so that legacy projects are not edited.
+ - As an Admin, I want to add/edit/remove admins, so that I can delegate duties to other admins.
+ - As an Admin/Student, I want to reset my password, so that I can set a new password when I forget my Password.
+ - As an Admin, I want to see project selection of each team, so that I can communicate with each team on the assigned project.
+ - As an admin, I want to download data for all students and project for the current semester, so that I can keep a copy of the semester data for future use.
